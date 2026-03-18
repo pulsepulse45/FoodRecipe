@@ -1,11 +1,10 @@
-import AppNavigation from "./src/navigation";
-import { Provider } from 'react-redux';
-import store from "./src/redux/store";
+import { ExpoRoot } from "expo-router";
+import Head from "expo-router/head";
 
-export default function App() {
+export default function ExpoRouterApp() {
   return (
-    <Provider store={store}>
-      <AppNavigation />
-    </Provider>
+    <Head.Provider>
+      <ExpoRoot context={require.context("./app", true)} location="/" />
+    </Head.Provider>
   );
 }
